@@ -2,10 +2,22 @@
 	<%= @post.title %>
 </h1>
 
-<p class="date">
-	Submitted <%= time_ago_in_words(@post.created_at) %> Ago
-</p>
+	<h1 class="title">
+		<%= @post.title %>
+	</h1>
 
-<p class="body">
-	<%= @post.body %>
-</p>
+	<p class="date">
+		Submitted <%= time_ago_in_words(@post.created_at) %> Ago
+	</p>
+
+	<p class="body">
+		<%= @post.body %>
+	</p>
+
+	<%= link_to "Edit", edit_post_path(@post), class: 'btn btn-primary' %>
+	<%= link_to "Delete", post_path(@post), method: :delete, data: {confirm: 'Are you sure?'}, class: 'btn btn-primary' %>
+
+	<%= render @post.comments %>
+
+	<%= render 'comments/form' %>
+</div>

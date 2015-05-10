@@ -1,4 +1,4 @@
-  /*
+/*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
  * listed below.
  *
@@ -14,9 +14,9 @@
  *= require_self
  */
 
- @import 'normalize';
- @import "bootstrap-sprockets";
- @import "bootstrap";
+@import 'normalize';
+@import "bootstrap-sprockets";
+@import "bootstrap";
 
  html, body {
  	font-family: 'Raleway', sans-serif;
@@ -36,7 +36,7 @@
  	height: 100%;
  	background: #f5f7f9;
  	padding: 7em 0 0 0;
- 	border-right: 1px solid #d6dce0;
+ 	border-left: 1px solid #d6dce0;
  	#logo {
  		width: 40px;
  		position: absolute;

@@ -8,6 +8,8 @@
 		Submitted <%= time_ago_in_words(@post.created_at) %> Ago
 	</p>
 
+<%= image_tag @post.image.url(:medium) %>
+
 	<p class="body">
 		<%= @post.body %>
 	</p>

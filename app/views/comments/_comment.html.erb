@@ -1,15 +1,15 @@
 <div id="comment_content">
 
-	<h1 class="author">
-		<%= comment.author %>
-	</h1>
+		<h1 class="author">
+			<%= comment.author %>
+		</h1>
 
-	<p class="date">
-		Submitted <%= time_ago_in_words(comment.created_at) %> Ago
-	</p>
+		<p class="date">
+			Submitted <%= time_ago_in_words(comment.created_at) %> Ago
+		</p>
 
-	<p class="body">
-		<%= comment.body %>
-	</p>
-
+		<p class="body">
+			<%= comment.body %>
+		</p>
+	
 </div>

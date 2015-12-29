@@ -14,7 +14,7 @@
 	  	<div class="container-fluid">
 		    <!-- Brand and toggle get grouped for better mobile display -->
 		    <div class="navbar-header">
-					<%= link_to 'Oceane-Blog', root_path, class: 'navbar-brand' %>
+					<%= link_to 'Blog-Oceane', root_path, class: 'navbar-brand' %>
 		    </div>
 
 		    <!-- Collect the nav links, forms, and other content for toggling -->
@@ -27,12 +27,13 @@
 		            <li><a href="https://www.linkedin.com/pub/oc%C3%A9ane-fievet/30/219/245">Linkedin profile</a></li>
 		            <li><a href="https://github.com/oceanef">Github</a></li>
 		            <li class="divider"></li>
-		            <li><a href="/about">About</a></li>
 		          </ul>
 		        </li>
 		        <% if user_signed_in? %>
-		       		<li> <%= link_to "New Post", new_post_path %></li>
-		       		<li> <%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
+		          <% if current_user.email == 'oceane.fievet@gmail.com' %>
+		            <li> <%= link_to "New Post", new_post_path %></li>
+		          <% end %>
+		        <li> <%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
 		       	<% else %>
 		        	<li> <%= link_to "Log In", new_user_session_path %></li>
  							<li> <%= link_to "Sign Up", new_user_registration_path %></li>
@@ -42,8 +43,8 @@
 		  </div><!-- /.container-fluid -->
 		</nav>
 
-		<header class="myimage">
-			<%= image_tag "blogwallpaper.jpg", class:"img_responsive img_center" %>
+		<header class="myimage" >
+			<%= image_tag "papvert.jpg", class:"myimage" %>
 		</header>
 
 		<div class="container">

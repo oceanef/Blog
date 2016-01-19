@@ -26,6 +26,9 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 #Use flexible authentication
 gem 'devise', '~> 3.4.1'
 
+#Monitor with Datadog
+gem 'dogstatsd-ruby', '~> 1.6'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

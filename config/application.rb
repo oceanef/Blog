@@ -2,6 +2,10 @@ require File.expand_path('../boot', __FILE__)
 
 require 'rails/all'
 
+#Enable the statsd server to aggregate the data from the appplication
+require 'statsd'
+$statsd = Statsd.new('localhost', 8125)
+
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)

@@ -3,6 +3,7 @@
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
 
+
   <div class="field">
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true %>
@@ -26,4 +27,11 @@
   </div>
 <% end %>
 
+  <% start_time=Time.now %>
+
 <%= render "devise/shared/links" %>
+
+  <% duration = Time.now - start_time %>
+  <% tags = "page:sign_up" %>
+  <% $statsd.increment('blog.page.views', :tags => [tags]) %>
+  <% $statsd.histogram('blog.latency', duration, :tags => [tags]) %>

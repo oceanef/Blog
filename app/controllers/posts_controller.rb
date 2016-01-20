@@ -8,8 +8,8 @@ class PostsController < ApplicationController
 		duration = Time.now - start_time
 		tags = "page:index"
 	#Add the histogram of the new metrics 'blob.latency'. We keep the same tag to well identify the page view
-		$statsd.histogram('blog.latency', duration, :tags => [tags])
-		$statsd.increment('blog.page.views', :tags => [tags])
+		$statsd.histogram('blog.latency', duration, :tags => [tags, 'support'])
+		$statsd.increment('blog.page.views', :tags => [tags, 'support'])
 	end
 
 	def new
@@ -17,7 +17,7 @@ class PostsController < ApplicationController
 	#Every-time the authorized user wants to create a new post, statsd increments the count and sends it to Datadog
 	#Here the metrics refers to a new post view, tag refers to the initial creation of a post
 			tags = "post:creation"
-			$statsd.increment('blog.page.views', :tags => [tags])
+			$statsd.increment('blog.page.views', :tags => [tags, 'support'])
 	end
 
 	def create
@@ -29,7 +29,7 @@ class PostsController < ApplicationController
 	#Every-time someone fails to create a new post, statsd increments the count and sends it to Datadog
 	#Here the metrics refers to a post creation failure, tag refers to the initial creation of a post
 			tags = "post:creation"
-			$statsd.increment('blog.failed.post', :tags => [tags])
+			$statsd.increment('blog.failed.post', :tags => [tags, 'support'])
 
 		end
 	end
@@ -39,8 +39,8 @@ class PostsController < ApplicationController
 		@post = Post.find(params[:id])
 		duration = Time.now - start_time
 		tags = "page:#{@post.title}"
-		$statsd.histogram('blog.latency', duration, :tags => [tags])
-		$statsd.increment('blog.page.views', :tags => [tags])
+		$statsd.histogram('blog.latency', duration, :tags => [tags, 'support'])
+		$statsd.increment('blog.page.views', :tags => [tags, 'support'])
 	end
 
 	def edit
@@ -57,7 +57,7 @@ class PostsController < ApplicationController
 	#Every-time someone fails to create a new post, statsd increments the count and sends it to Datadog
 	#Here the metrics refers to a post creation failure, tags refers to the update of a post
 			tags = "post:update"
-			$statsd.increment('blog.failed.post', :tags => [tags])
+			$statsd.increment('blog.failed.post', :tags => [tags, 'support'])
 		end
 	end
 

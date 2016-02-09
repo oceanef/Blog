@@ -11,8 +11,8 @@
 <% if @post.image.exists? %>
 	<%= image_tag @post.image.url(:medium) %>
 <% end %>
-	<p class="text-justify">
-		<%= @post.body %>
+	<p class= "text-justify">
+		<%= simple_format @post.body %>
 	</p>
 
 <% if user_signed_in? and current_user.email == 'oceane.fievet@gmail.com' %>

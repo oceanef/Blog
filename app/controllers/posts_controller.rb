@@ -16,7 +16,7 @@ class PostsController < ApplicationController
 		@post = Post.new
 	#Every-time the authorized user wants to create a new post, statsd increments the count and sends it to Datadog
 	#Here the metrics refers to a new post view, tag refers to the initial creation of a post
-			tags = "post:creation"
+			tags = "page:creation"
 			$statsd.increment('blog.page.views', :tags => [tags, 'support'])
 	end
 

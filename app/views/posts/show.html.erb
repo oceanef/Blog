@@ -15,7 +15,7 @@
 		<%= simple_format @post.body %>
 	</p>
 
-<div align="top"> <%= render_shareable :buttons=> ['twitter', 'facebook', 'linkedin', 'google_plus'], :url=> 'http://blog.ofievet.net/show_post_path'%></div>
+<div align="top"> <%= render_shareable :buttons=> ['twitter', 'facebook', 'linkedin', 'google_plus'], :url=> 'http://blog.ofievet.net/post/@post.id'%></div>
 
 <% if user_signed_in? and current_user.email == 'oceane.fievet@gmail.com' %>
 	<%= link_to "Edit", edit_post_path(@post), class: 'btn btn-primary' %>

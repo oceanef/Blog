@@ -29,6 +29,9 @@ gem 'devise', '~> 3.4.1'
 #Monitor with Datadog
 gem 'dogstatsd-ruby', '~> 1.6'
 
+#Share on social websites
+gem 'shareable', '~> 1.1', '>= 1.1.4'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

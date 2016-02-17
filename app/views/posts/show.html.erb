@@ -15,7 +15,8 @@
 		<%= simple_format @post.body %>
 	</p>
 
-<div> <%= render_shareable :buttons=> ['twitter', 'facebook', 'linkedin', 'google_plus'], :facebook=> {:send=> 'true', :url=> 'http://blog.ofievet.net/posts/@post.id'} %></div>
+
+<div> <%= render_shareable :buttons=> ['twitter', 'facebook', 'linkedin', 'google_plus'], :facebook=> {:send=> 'true', :url => "#{request.original_url}" } %></div>
 
 
 <% if user_signed_in? and current_user.email == 'oceane.fievet@gmail.com' %>

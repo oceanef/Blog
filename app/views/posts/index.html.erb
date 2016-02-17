@@ -1,8 +1,10 @@
 <% @posts.each do |post| %>
 	<div class="post_wrapper">
-	<h2 class="title"> 
-		<%= link_to post.title, post %></h2>
+		<h2 class="title">
+			<%= link_to post.title, post %>
+		</h2>
 		<p class="date"><%= post.created_at.strftime("%B, %d, %Y") %></p>
+		<%= render_shareable :url=> "#{request.original_url}posts/#{post.id}", :buttons=> ['twitter', 'facebook', 'linkedin', 'google_plus'], :facebook=> {:send=> 'true', :url=> "#{request.original_url}posts/#{post.id}"} %>
 	</div>
 <% end %>
 

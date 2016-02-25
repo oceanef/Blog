@@ -3,26 +3,25 @@
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h4 class="modal-title" id="post-<%= post.id %>"><%= post.title %></h4>
+          <h4 class="modal-title" id="post-<%= post.id %>"><%= post.title %>
+          <a class="close" data-dismiss="modal">X</a>
+          </h4>
         </div>
         <div class="modal-body">
-          <%= post.body %>
+          <%= simple_format post.body %>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+           <button type="button" class="btn btn-primary"><%= link_to "See full post", post %></button>
         </div>
       </div>
     </div>
   </div>
 
 	<div class="post_wrapper">
-		<h2 class="title">
-			<%= link_to post.title, post %>
-		</h2>
+		<h1 class="title" data-toggle="modal" data-target="#post-<%= post.id %>">
+			<%= post.title %>
+		</h1>
 		<p class="date"><%= post.created_at.strftime("%B, %d, %Y") %></p>
-		<button class="btn btn-link" data-toggle="modal" data-target="#post-<%= post.id %>">
-    	Preview
-  	</button>
 		<%= render_shareable :url=> "#{request.original_url}posts/#{post.id}", :buttons=> ['twitter', 'facebook', 'linkedin', 'google_plus'], :facebook=> {:send=> 'true', :url=> "#{request.original_url}posts/#{post.id}"} %>
 	</div>
 <% end %>

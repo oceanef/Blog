@@ -26,6 +26,9 @@
 <%= render @post.comments %>
 <% if user_signed_in? %>
 		<%= render 'comments/form' %>
+	<% else %>
+		<button type="button" class="btn btn-primary btn-sm"><%= link_to "Please log in to comment", new_user_session_path %></button>
+
 <% end %>
 
 </div>

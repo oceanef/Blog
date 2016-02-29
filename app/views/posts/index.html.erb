@@ -19,7 +19,8 @@
 
 	<div class="post_wrapper">
 		<h1 class="title" data-toggle="modal" data-target="#post-<%= post.id %>">
-			<%= post.title %>
+			<span style="cursor:pointer"><%= post.title %></span>
+			<!-- <a><%= post.title %></a> -->
 		</h1>
 		<p class="date"><%= post.created_at.strftime("%B, %d, %Y") %></p>
 		<%= render_shareable :url=> "#{request.original_url}posts/#{post.id}", :buttons=> ['twitter', 'facebook', 'linkedin', 'google_plus'], :facebook=> {:send=> 'true', :url=> "#{request.original_url}posts/#{post.id}"} %>

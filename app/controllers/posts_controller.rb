@@ -41,6 +41,7 @@ class PostsController < ApplicationController
 		tags = "page:#{@post.title}"
 		$statsd.histogram('blog.latency', duration, :tags => [tags, 'support'])
 		$statsd.increment('blog.page.views', :tags => [tags, 'support'])
+		render layout: "no_image_application"
 	end
 
 	def edit
